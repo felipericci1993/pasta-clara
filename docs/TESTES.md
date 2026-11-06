@@ -46,10 +46,12 @@ Isso não é uma auditoria de segurança completa. Mudanças concorrentes malici
 ## Ainda não verificado
 
 - Execução real em Windows e macOS.
-- Execução local em Python 3.11 ou 3.13; a matriz de CI está apenas preparada.
+- Execução fora do CI em Python 3.11 ou 3.13.
 - Falhas reais de hardware, queda de energia, falta de espaço em disco e concorrência contínua.
 
 ## CI no GitHub
+
+Na publicação inicial, a suíte e a compilação passaram em Linux com Python 3.11, 3.12 e 3.13. [Execução verificada](https://github.com/felipericci1993/pasta-clara/actions/runs/42296035570), correspondente ao commit `f639c316d4230ed5f28bea3dd59b3f8dc165ad0d`.
 
 O workflow executa a suíte em Linux com Python 3.11, 3.12 e 3.13. O resultado remoto de cada commit está na [aba Actions](https://github.com/felipericci1993/pasta-clara/actions). As evidências locais acima não substituem esse resultado nem comprovam compatibilidade com Windows ou macOS.
 
