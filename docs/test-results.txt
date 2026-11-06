@@ -1,0 +1,26 @@
+test_broken_symlink_destination_name_not_overwritten (test_core.OrganizerTests.test_broken_symlink_destination_name_not_overwritten) ... ok
+test_cli_defaults_to_simulation_and_apply_is_explicit (test_core.OrganizerTests.test_cli_defaults_to_simulation_and_apply_is_explicit) ... ok
+test_cli_rejects_abbreviated_apply_without_writing (test_core.OrganizerTests.test_cli_rejects_abbreviated_apply_without_writing) ... ok
+test_cli_reports_validation_error (test_core.OrganizerTests.test_cli_reports_validation_error) ... ok
+test_collisions_and_repeat_are_predictable (test_core.OrganizerTests.test_collisions_and_repeat_are_predictable) ... ok
+test_copy_error_removes_partial_and_preserves_completed (test_core.OrganizerTests.test_copy_error_removes_partial_and_preserves_completed) ... ok
+test_copy_preserves_every_byte_and_source (test_core.OrganizerTests.test_copy_preserves_every_byte_and_source) ... ok
+test_destination_created_after_plan_never_overwritten (test_core.OrganizerTests.test_destination_created_after_plan_never_overwritten) ... ok
+test_destination_swapped_for_symlink_after_plan_is_rejected (test_core.OrganizerTests.test_destination_swapped_for_symlink_after_plan_is_rejected) ... ok
+test_dry_run_has_no_effects (test_core.OrganizerTests.test_dry_run_has_no_effects) ... ok
+test_empty_folder_does_not_create_destination (test_core.OrganizerTests.test_empty_folder_does_not_create_destination) ... ok
+test_grouping_case_and_unknown_extension (test_core.OrganizerTests.test_grouping_case_and_unknown_extension) ... ok
+test_hidden_directories_and_symlinks_ignored (test_core.OrganizerTests.test_hidden_directories_and_symlinks_ignored) ... ok
+test_invalid_source (test_core.OrganizerTests.test_invalid_source) ... ok
+test_limits_fail_before_writes (test_core.OrganizerTests.test_limits_fail_before_writes) ... ok
+test_mutation_during_copy_removes_partial (test_core.OrganizerTests.test_mutation_during_copy_removes_partial) ... ok
+test_overlap_rejected (test_core.OrganizerTests.test_overlap_rejected) ... ok
+test_replaying_same_plan_is_rejected (test_core.OrganizerTests.test_replaying_same_plan_is_rejected) ... ok
+test_source_changed_after_plan_has_no_effects (test_core.OrganizerTests.test_source_changed_after_plan_has_no_effects) ... ok
+test_source_replaced_by_symlink_after_plan_is_rejected (test_core.OrganizerTests.test_source_replaced_by_symlink_after_plan_is_rejected) ... ok
+test_symlink_roots_and_destination_ancestors_rejected (test_core.OrganizerTests.test_symlink_roots_and_destination_ancestors_rejected) ... ok
+
+----------------------------------------------------------------------
+Ran 21 tests in 0.025s
+
+OK

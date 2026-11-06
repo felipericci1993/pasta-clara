@@ -1,0 +1,18 @@
+1. Simulação com dados fictícios
+SIMULAÇÃO: nada será criado ou alterado.
+'anotacoes.txt' → 'documentos/anotacoes__2.txt' (36 bytes)
+'icone.svg' → 'imagens/icone.svg' (115 bytes)
+'vendas.csv' → 'planilhas/vendas.csv' (34 bytes)
+3 arquivo(s), 185 bytes; 2 entrada(s) ignorada(s).
+Para copiar, repita o comando com --aplicar. O plano será recalculado.
+
+2. Aplicação somente no ambiente temporário
+APLICAÇÃO: cópia de arquivos.
+'anotacoes.txt' → 'documentos/anotacoes__2.txt' (36 bytes)
+'icone.svg' → 'imagens/icone.svg' (115 bytes)
+'vendas.csv' → 'planilhas/vendas.csv' (34 bytes)
+3 arquivo(s), 185 bytes; 2 entrada(s) ignorada(s).
+Concluído: 3 cópia(s). Originais preservados.
+
+Verificado: 3 cópias corretas, originais e destino preexistente preservados.
+Os arquivos temporários desta demonstração serão removidos agora.
