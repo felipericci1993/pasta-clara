@@ -57,14 +57,16 @@ def _fingerprint(info: os.stat_result) -> tuple[int, int, int, int, int]:
 
 
 def _checked_path(value: str | Path) -> Path:
-    # Do not resolve symlinks before examining every component.
-    path = Path(os.path.abspath(os.fspath(value)))
+    # Keep '..' until every original component has been checked for symlinks.
+    path = Path(value).absolute()
     for component in [*reversed(path.parents), path]:
         if component.is_symlink():
             raise OrganizationError(f'Link simbólico não permitido no caminho: {component}')
         if component.exists() and not component.is_dir():
             raise OrganizationError(f'O caminho precisa ser uma pasta: {component}')
-    return path
+        if component.name == '..' and not component.is_dir():
+            raise OrganizationError(f'O caminho antes de ".." precisa ser uma pasta existente: {component.parent}')
+    return Path(os.path.abspath(path))
 
 
 def _roots(source: str | Path, destination: str | Path) -> tuple[Path, Path]:
