@@ -1,5 +1,43 @@
 # Verificação do Pasta Clara
 
+## Validação do commit atual
+
+Situação conferida em **08/11/2026** para o commit [735d7a1](https://github.com/felipericci1993/pasta-clara/commit/735d7a1a85f350dafb596c24daf8431ff13138c6), que corrigiu a validação de caminhos com `..`.
+
+- **CI aprovado em 07/11/2026:** [execução 42386911346](https://github.com/felipericci1993/pasta-clara/actions/runs/42386911346), no mesmo commit. Os três jobs Ubuntu, com Python 3.11, 3.12 e 3.13, concluíram os **30 testes** e a compilação de `pasta_clara` com sucesso.
+- **Verificação local repetida em 08/11/2026:** Linux, Python 3.12.14, em uma cópia dos arquivos desse commit. Passaram os 30 testes, a execução separada das 9 regressões de caminhos, a demonstração, a ajuda da CLI e a compilação de módulos, exemplo e testes. Todos os comandos terminaram com código 0.
+- Os 30 testes são os **21 anteriores mais 9 regressões**; a execução separada não representa testes adicionais. Foram usados somente diretórios temporários e dados fictícios.
+
+### Caso corrigido
+
+A versão anterior simplificava `..` antes de procurar links simbólicos. Isso podia esconder um link e selecionar uma pasta diferente da indicada pelo caminho original. Por exemplo, se `atalho` aponta para `outra/subpasta`, o sistema interpreta `atalho/../saida` como `outra/saida`; remover `atalho/..` antes da verificação selecionaria `saida`.
+
+A validação agora examina os componentes originais antes de normalizar o caminho. Recusa links simbólicos, arquivos usados como pastas e pastas inexistentes antes de `..`. Caminhos com `..` passando por pastas reais continuam aceitos, e origem e destino iguais ou sobrepostos continuam recusados.
+
+As [9 regressões](../tests/test_paths.py) cobrem origem e destino, caminhos absolutos e relativos, links válidos e quebrados, componentes inválidos, uso permitido de `..`, sobreposição e recusa pela CLI com `--aplicar` sem criar o destino nem copiar arquivos.
+
+### Repetir a verificação
+
+Na raiz de uma cópia do projeto com o commit indicado:
+
+```bash
+python -B -m unittest discover -s tests -p test_paths.py -v
+python -B -m unittest discover -s tests -v
+python -B examples/demonstrar.py
+python -B -m pasta_clara --help
+python -m compileall -q pasta_clara examples tests
+```
+
+`compileall` cria caches Python. Na verificação local desta revisão, `PYTHONPYCACHEPREFIX` apontou para uma pasta temporária, removida depois da compilação. Os arquivos do projeto permaneceram iguais aos do commit durante os testes.
+
+### Limites desta validação
+
+Windows e macOS continuam sem execução real. Python 3.11 e 3.13 foram verificados somente no CI Linux. Não foram simuladas falhas reais de hardware, queda de energia, falta de espaço em disco ou concorrência contínua. Esta correção não é uma auditoria de segurança nem uma garantia contra alterações maliciosas concorrentes; use pastas sob seu controle e sem modificação simultânea.
+
+## Registro inicial de 06/11/2026
+
+O registro abaixo foi preservado. A contagem de 21 testes e os arquivos `test-results.txt` e `demo-results.txt` documentam a revisão inicial, não a execução atual de 30 testes.
+
 Data: 06/11/2026. Ambiente verificado: Linux, Python 3.12.14. Todos os arquivos de teste foram criados em diretórios temporários com conteúdo fictício.
 
 ## Resultado
